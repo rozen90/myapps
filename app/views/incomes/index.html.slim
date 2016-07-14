@@ -1,0 +1,25 @@
+h1 Listing incomes
+
+table
+  thead
+    tr
+      th Date &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+      th Sum &ensp;
+      th Income
+      th &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+      th &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+      th
+
+  tbody
+    - @incomes.each do |income|
+      tr
+        td = income.date
+        td = income.sum
+        td = link_to 'Show', [@post, income]
+        td = link_to 'Edit', edit_post_income_path(@post, income) 
+        td = link_to 'Destroy', post_income_path(@post, income), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+br
+
+= link_to 'New Income', new_post_income_path

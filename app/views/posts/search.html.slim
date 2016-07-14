@@ -1,0 +1,8 @@
+= form_tag '/posts/search', :method => :post do
+ .field
+  = select_date Date.today
+  .actions = submit_tag("Search")
+
+  p
+  strong User:
+  = @d

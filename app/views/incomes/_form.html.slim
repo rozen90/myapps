@@ -1,0 +1,15 @@
+= form_for [@post, @income] do |f|
+  - if @income.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@income.errors.count, "error")} prohibited this income from being saved:"
+      ul
+        - @income.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :date
+    = f.date_select :date
+  .field
+    = f.label :sum
+    = f.number_field :sum
+  .actions = f.submit

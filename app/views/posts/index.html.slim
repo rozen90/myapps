@@ -1,0 +1,21 @@
+h2 Expense
+
+p Download:
+= link_to 'CSV', posts_path(format: "csv"), class: 'btn btn-default'
+= link_to 'XLS', posts_path(format: "xls"), class: 'btn btn-default'
+
+- @posts.each do |post|
+  h1 = link_to post.title, post_incomes_path(post)
+  p = post.content
+  s = post.user_id
+
+  div
+    b Author: 
+    = post.user.email
+
+= link_to 'New expense', new_post_path, class: 'btn btn-default'
+= link_to 'Search', search_posts_path, class: 'btn btn-default'
+
+h1 New post
+
+== render 'form'
